@@ -20,5 +20,5 @@ export DOCKERDELEGATENAME='dockerdelegate'
 *    and run the below  command
 
 ```plaintext
-curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-bash/automatedelegate.sh | bash
+curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-bash/installk3d.sh>installk3d.sh &&  curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-bash/automatedelegate.sh | bash
 ```
