@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-
+#
+###########################
+# Setup and Configure K3d #
+###########################
+#
+#
 APP_NAME="k3d"
 REPO_URL="https://github.com/k3d-io/k3d"
 
