@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+##########################################################
+# Get Delegate docker-compose file and deploy it locally #
+##########################################################
+#
+#
 print_color(){
   GREEN=$(tput setaf 2)
   NC=$(tput sgr0)
