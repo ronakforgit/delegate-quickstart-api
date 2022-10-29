@@ -1,0 +1,77 @@
+pipeline:
+  name: testk88
+  identifier: testk8
+  projectIdentifier: TestProject
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: k8deploy
+        identifier: k8deploy
+        description: ""
+        type: Deployment
+        spec:
+          serviceConfig:
+            serviceRef: k8service
+            serviceDefinition:
+              spec:
+                variables: []
+                manifests:
+                  - manifest:
+                      identifier: manifest
+                      type: K8sManifest
+                      spec:
+                        store:
+                          type: Github
+                          spec:
+                            connectorRef: ronakforgit
+                            gitFetchType: Branch
+                            paths:
+                              - Manifests/Files/templates
+                            repoName: harness-docs
+                            branch: main
+                        valuesPaths:
+                          - Manifests/Files/ng_values_dockercfg.yaml
+                        skipResourceVersioning: false
+                artifacts:
+                  primary:
+                    spec:
+                      connectorRef: ronakpatildocker
+                      imagePath: library/nginx
+                      tag: <+input>
+                    type: DockerRegistry
+              type: Kubernetes
+          infrastructure:
+            environmentRef: dev
+            infrastructureDefinition:
+              type: KubernetesDirect
+              spec:
+                connectorRef: account.Ronakaws
+                namespace: default
+                releaseName: release-<+INFRA_KEY>
+            allowSimultaneousDeployments: false
+          execution:
+            steps:
+              - step:
+                  name: Rollout Deployment
+                  identifier: rolloutDeployment
+                  type: K8sRollingDeploy
+                  timeout: 10m
+                  spec:
+                    skipDryRun: false
+                    pruningEnabled: false
+            rollbackSteps:
+              - step:
+                  name: Rollback Rollout Deployment
+                  identifier: rollbackRolloutDeployment
+                  type: K8sRollingRollback
+                  timeout: 10m
+                  spec:
+                    pruningEnabled: false
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback

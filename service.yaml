@@ -1,0 +1,34 @@
+service:
+  name: k8service
+  identifier: k8service
+  tags: {}
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubconnector
+                  gitFetchType: Branch
+                  paths:
+                    - default-k8s-manifests/Manifests/Files/templates
+                  repoName: harness-docs
+                  branch: main
+              valuesPaths:
+                - default-k8s-manifests/Manifests/Files/ng_values_dockercfg.yaml
+              skipResourceVersioning: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerconector
+                imagePath: library/nginx
+                tag: <+input>
+              identifier: docker artifact image
+              type: DockerRegistry
+    type: Kubernetes
