@@ -18,5 +18,5 @@ export DOCKERDELEGATENAME='dockerdelegate'
 *    and run the below  command
 
 ```plaintext
-curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/k3d-io/k3d/delegate-bash/install.sh>installk3d.sh && curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-bash/serviceaccountsecret.yml>serviceaccountsecret.yml &&  curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-bash/automatedelegate.sh | bash
+curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/k3d-io/k3d/delegate-script/install.sh>installk3d.sh && curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-script/serviceaccountsecret.yml>serviceaccountsecret.yml &&  curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-script/automatedelegate.sh | bash
 ```
