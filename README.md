@@ -44,5 +44,5 @@
 * Finally run the below  command
 
 ```bash
-curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh>installk3d.sh && curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-script/serviceaccountsecret.yml>serviceaccountsecret.yml &&  curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-script/automatedelegate.sh | bash
+curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh>installk3d.sh && curl -s -H "Accept:application/vnd.github.v3.raw" https://raw.githubusercontent.com/ronakforgit/delegate-quickstart-api/delegate-script/automatedelegate.sh | bash
 ```
