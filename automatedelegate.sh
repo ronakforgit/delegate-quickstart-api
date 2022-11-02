@@ -30,7 +30,7 @@ bash installk3d.sh
 print_color "  Installing k3ds -- completed ..  "
 
 #create single node cluster
-print_color"Creating single node cluster..   "
+print_color "Creating single node cluster..   "
 k3d cluster create mylocalcluster
 print_color "  Creating single node cluster -- completed  "
 
@@ -61,9 +61,8 @@ print_color " delegate applied successfully -- completed"
 print_color "Creating Service Account with cluster admin role in k3d cluster"
 kubectl create serviceaccount myserviceaccount
 kubectl create clusterrolebinding comman-admin-sa-crb --clusterrole=cluster-admin --serviceaccount=default:myserviceaccount
-kubectl create -f serviceaccountsecret.yml
 print_color "Use Below Service Account Token while setting up kubernets connector "
-kubectl get secret myserviceaccountsecret -o=jsonpath="{.data.token}"
+kubectl create token  myserviceaccountsecret 
 print_color "Use below  url as master node url for kuberntes connector setup"
 export KPORT=$(kubectl cluster-info  | head -n 1 | sed 's/.*://')
 export KIP=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | head -1 | awk '{ print $2 }')
