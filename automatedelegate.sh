@@ -62,7 +62,7 @@ print_color "Creating Service Account with cluster admin role in k3d cluster"
 kubectl create serviceaccount myserviceaccount
 kubectl create clusterrolebinding comman-admin-sa-crb --clusterrole=cluster-admin --serviceaccount=default:myserviceaccount
 print_color "Use Below Service Account Token while setting up kubernets connector "
-kubectl create token  myserviceaccountsecret 
+kubectl create token  myserviceaccount 
 print_color "Use below  url as master node url for kuberntes connector setup"
 export KPORT=$(kubectl cluster-info  | head -n 1 | sed 's/.*://')
 export KIP=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | head -1 | awk '{ print $2 }')
