@@ -31,7 +31,7 @@
         ```
     - For Linux and MacOS users:
     
-        ```ssh
+        ```bash
         export APIKEY='XXXXXX'
         export ACCOUNTIDENTIFIER='XXXXXX'
         export ORGIDENTIFIER='default'
