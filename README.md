@@ -20,7 +20,7 @@
     
     - For Windows users:
         
-        ```ssh
+        ```bash
         set APIKEY=‘XXXXXX’
         set ACCOUNTIDENTIFIER=‘XXXXXX’
         set ORGIDENTIFIER=‘default’
