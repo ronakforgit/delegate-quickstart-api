@@ -1,4 +1,4 @@
-# delegate-quickstart-api
+# Deploy Docker Delegate and Setup Local K8s Infrastructure In Under 5 Minutes
 ## Prerquisites
 
 ---
